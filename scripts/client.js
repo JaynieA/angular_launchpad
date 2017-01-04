@@ -25,4 +25,5 @@ app.controller('LaunchpadController', ['$scope', function($scope) {
     } // end else
   }; // end isPopulated
 
+  console.log($scope.animalList);
 }]); //end app controller

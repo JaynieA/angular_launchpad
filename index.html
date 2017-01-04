@@ -36,17 +36,19 @@
       <hr>
 
       <ul>
-        <li ng-repeat="animal in allAnimals">{{ animal.type }}: {{animal.name}} ({{animal.age}})</li>
+        <li ng-repeat="animal in allAnimals" >{{ animal.type }}: {{animal.name}} ({{animal.age}})</li>
       </ul>
 
       <form class="form-inline">
-        <label>Show Buttons?:</label>
+        <label>Show Name Buttons?:</label>
         <input type="checkbox" ng-model="animalButtons">
       </form>
 
       <div ng-show="animalButtons">
         <button type="button" ng-repeat="animal in allAnimals" class="btn btn-success">{{animal.name}}</button>
       </div>
+
+
 
     </div>
   </div>
