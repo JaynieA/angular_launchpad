@@ -6,19 +6,50 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="vendors/angular.min.js" charset="utf-8"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
-  <title>Document</title>
+  <!-- Latest compiled and minified bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Angular Launchpad</title>
 </head>
 <body ng-app="app">
-  <h1>Angular Launchpad</h1>
-  <div ng-controller="LaunchpadController">
-    <label>Animal: </label>
-    <input type="text" ng-model="animalIn" placeholder="animal"> {{ animalIn }}
-    <label>Age: </label>
-    <input type="text" ng-model="ageIn" placeholder="age"> {{ ageIn }}
-    <button type="button" name="button" ng-click="addAnimal()">Add animal</button>
-    <ul>
-      <li ng-repeat="animal in allAnimals">{{ animal.type }} ({{animal.age}})</li>
-    </ul>
+  <div class="container">
+    <h1 class="text-center">Angular Launchpad</h1>
+    <div ng-controller="LaunchpadController">
+      <form class="form-inline">
+        <div class="form-group">
+          <label>Species: </label>
+          <input type="text" ng-model="speciesIn" placeholder="species" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Name: </label>
+          <input type="text" ng-model="nameIn" placeholder="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Age: </label>
+          <input type="text" ng-model="ageIn" placeholder="age" class="form-control" required>
+        </div>
+        <span ng-show="isPopulated(speciesIn)">Currently Adding: {{ speciesIn }}</span>
+        <span ng-show="isPopulated(nameIn)">: {{ nameIn }}</span>
+        <span ng-show="isPopulated(ageIn)">({{ ageIn }})</span>
+        <button type="button" ng-click="addAnimal()" class="btn btn-primary">Add animal</button>
+      </form>
+
+      <hr>
+
+      <ul>
+        <li ng-repeat="animal in allAnimals">{{ animal.type }}: {{animal.name}} ({{animal.age}})</li>
+      </ul>
+
+      <form class="form-inline">
+        <label>Show Buttons?:</label>
+        <input type="checkbox" ng-model="animalButtons">
+      </form>
+
+      <div ng-show="animalButtons">
+        <button type="button" ng-repeat="animal in allAnimals" class="btn btn-success">{{animal.name}}</button>
+      </div>
+
+    </div>
   </div>
+
 </body>
 </html>
