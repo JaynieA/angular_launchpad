@@ -25,5 +25,11 @@ app.controller('LaunchpadController', ['$scope', function($scope) {
     } // end else
   }; // end isPopulated
 
-  console.log($scope.animalList);
+  //Reset Form
+  $scope.resetForm = function() {
+    $scope.speciesIn = '';
+    $scope.nameIn = '';
+    $scope.ageIn = '';
+  }; // end resetForm
+
 }]); //end app controller

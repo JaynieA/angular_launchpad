@@ -6,7 +6,6 @@ Use Angular to set up the following:
 * [x] 2-bind click
 * [x] ng-click
 * [x] ng-repeat
-* [x]
 
 ##Technologies
 
